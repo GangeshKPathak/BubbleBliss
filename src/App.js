@@ -8,14 +8,12 @@ import { useProducts } from "./Contexts/ProductsProvider";
 
 import {
   Cart,
-  Checkout,
   ErrorPage,
   Footer,
   Header,
   Home,
   Loading,
   Products,
-  Profile,
   SingleProduct,
   Success,
   Wishlist,
@@ -41,7 +39,6 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/api/products/:prodId" element={<SingleProduct />} />
         <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/checkout" element={<Checkout />} />
         <Route path="/success" element={<Success />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>

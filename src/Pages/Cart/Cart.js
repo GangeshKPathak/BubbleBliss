@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useProducts, useUtils } from "../../Contexts";
-import { Coupon, ProductCard, TotalCard } from "../../Components";
+import { ProductCard } from "../../Components";
 import { cartImage } from "../../Assests";
 
 export const Cart = () => {
@@ -22,7 +22,6 @@ export const Cart = () => {
       <h1 className="header-heading">
         Cart {state?.cart?.length ? `(${state?.cart?.length})` : null}
       </h1>
-      <Coupon />
       {state?.cart?.length ? (
         <div className="gridCart">
           <section className="products cart">
@@ -59,7 +58,6 @@ export const Cart = () => {
               </div>
             ))}
           </section>
-          <TotalCard />
         </div>
       ) : (
         <div className="empty">

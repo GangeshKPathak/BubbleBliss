@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useProducts, useUtils } from "../../Contexts";
-import { EmptyWishlist, WishlistListing } from "../../Components";
 
 export const Wishlist = () => {
   const { state } = useProducts();
@@ -16,9 +15,6 @@ export const Wishlist = () => {
         Wishlist{" "}
         {state?.wishlist?.length ? `(${state?.wishlist?.length})` : null}
       </h1>
-      <section className="products">
-        {state?.wishlist?.length ? <WishlistListing /> : <EmptyWishlist />}
-      </section>
     </>
   );
 };

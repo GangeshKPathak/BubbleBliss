@@ -4,12 +4,7 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
-import {
-  APIProvider,
-  AddressProvider,
-  ProductsProvider,
-  UtilsProvider,
-} from "./Contexts";
+import { APIProvider, ProductsProvider, UtilsProvider } from "./Contexts";
 
 makeServer();
 
@@ -18,11 +13,9 @@ ReactDOM.render(
     <BrowserRouter>
       <APIProvider>
         <ProductsProvider>
-          <AddressProvider>
-            <UtilsProvider>
-              <App />
-            </UtilsProvider>
-          </AddressProvider>
+          <UtilsProvider>
+            <App />
+          </UtilsProvider>
         </ProductsProvider>
       </APIProvider>
     </BrowserRouter>

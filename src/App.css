@@ -491,6 +491,12 @@ input[type="checkbox"] {
   padding: 0 0 2rem;
   margin: 1rem 0;
   border-radius: 5px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.productCard:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .product-image {
@@ -1317,4 +1323,31 @@ input[type="checkbox"] {
 }
 .first-tab {
   margin-left: -3rem;
+}
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.pagination-controls button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination-controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-controls span {
+  margin: 0 1rem;
+  font-size: 1rem;
 }

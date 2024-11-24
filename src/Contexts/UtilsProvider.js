@@ -3,7 +3,6 @@ import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useProducts } from "./ProductsProvider";
 import { useAPI } from "./APIProvider";
-import { useAddress } from "./AddressProvider";
 
 const UtilsContext = createContext();
 
@@ -22,7 +21,6 @@ export const UtilsProvider = ({ children }) => {
     decreaseCartQuantity,
   } = useAPI();
 
-  const { selectedAddress } = useAddress();
   const [modal, setModal] = useState(false);
   const [disableBtn, setDisableBtn] = useState(false);
 
@@ -224,7 +222,7 @@ export const UtilsProvider = ({ children }) => {
   };
 
   const displayRazorpay = async () => {
-    if (selectedAddress) {
+    if (true) {
       const response = await loadScript(
         "https://checkout.razorpay.com/v1/checkout.js"
       );
@@ -254,9 +252,6 @@ export const UtilsProvider = ({ children }) => {
       const paymentObject = new window.Razorpay(options);
       paymentObject.open();
     } else {
-      toast.warn("Select Address", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-      });
     }
   };
 

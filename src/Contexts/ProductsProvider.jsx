@@ -140,32 +140,46 @@ export const ProductsProvider = ({ children }) => {
     fetchData();
   }, []);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10; // Adjust this based on your requirements
+  
+  const paginatedData = filteredData.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+  
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
   return (
     <ProductsContext.Provider
-      value={{
-        state,
-        dispatch,
-        totalAmount,
-        filteredData,
-        notificationActive,
-        setNotificationActive,
-        isLoading,
-        setIsLoading,
-        showFilters,
-        setShowFilters,
-        showCouponModal,
-        setShowCouponModal,
-        originalAmount,
-        notificationContent,
-        setNotificationContent,
-        fetchData,
-        fetchProductsAgain,
-        fetchCategoriesAgain,
-        handleClearFilters,
-      }}
-    >
-      {children}
-    </ProductsContext.Provider>
+    value={{
+      state,
+      dispatch,
+      totalAmount,
+      filteredData,
+      paginatedData,
+      totalPages,
+      currentPage,
+      setCurrentPage,
+      notificationActive,
+      setNotificationActive,
+      isLoading,
+      setIsLoading,
+      showFilters,
+      setShowFilters,
+      showCouponModal,
+      setShowCouponModal,
+      originalAmount,
+      notificationContent,
+      setNotificationContent,
+      fetchData,
+      fetchProductsAgain,
+      fetchCategoriesAgain,
+      handleClearFilters,
+    }}
+  >
+    {children}
+  </ProductsContext.Provider>
   );
 };
 
